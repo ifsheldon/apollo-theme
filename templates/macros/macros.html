@@ -122,16 +122,11 @@
                         :: <time>{{ page.reading_time }}</time> Min Read
                     {% endif %}
 
-                    {% if page.word_count %}
-                        :: {{ page.word_count }} Words
-                    {% endif %}
-
                     {# Inline display of tags directly after the date #}
                     {% if page.taxonomies and page.taxonomies.tags %}
-                            <span class="tags-label"> :: Tags:</span>
                             <span class="tags">
                                 {%- for tag in page.taxonomies.tags %}
-                                    <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}" class="post-tag">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+                                    <a href="{{ get_taxonomy_url(kind='tags', name=tag, lang=page.lang) }}" class="post-tag">{{ tag }}</a>{% if not loop.last %} {% endif %}
                                 {% endfor %}
                             </span>
                     {% endif %}
